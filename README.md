@@ -1,15 +1,36 @@
-# security-notebooks
+# Project Title
+This is a short description of the project. E.g., "This repo is my custom jupyter datascience image..."
 
-Lab# 2- To launch a jupyter stack datascience notebook
+[![Binder](https://mybinder.org/badge_logo.svg)](your-mybinder-link)
+
+The built image is [hosted on Docker-Hub](https://hub.docker.com/layers/kaup1074/my-datascience-notebook/latest/images/sha256-48f8e3077ff6573b3e4bd42849da4a70bbe8cae555536febb10f80c2932ad486?context=repo).
+
+## Using this repo
+### With `docker`
+Build:
 
 ```bash
-docker run --rm -p 10000:8888 -v "${PWD}":/home/jovyan/work jupyter/datascience-notebook:b418b67c225b
+docker build fill-in-the-rest
+# Should explain how to build the image, including tagging it
 ```
 
-Note: the above will be accessible on localhost:10000, not 8888!
-
-Do the same with a `docker-compose.yml` file:
+Run:
 
 ```bash
-docker-compose up -d
+docker run fill-in-the-rest
+# - Should publish port 8888
+# - Should mount the local directory as a volume in the
+#   container's home directory
+# - Should `--rm` container when done
+# - Should use `-it` mode
+```
+
+### With `docker-compose`
+Build and run:
+
+```bash
+docker-compose up
+# - It should publish port 8888
+# - It should mount the local directory as a volume in the container's
+#   home directory
 ```
