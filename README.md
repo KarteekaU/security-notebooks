@@ -1,7 +1,7 @@
-# Project Title
-This is a short description of the project. E.g., "This repo is my custom jupyter datascience image..."
+# Security notebooks- Python Data Science lab
+This repo has all the labs and class work from MSBX 5500
 
-[![Binder](https://mybinder.org/badge_logo.svg)](your-mybinder-link)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/KarteekaU/security-notebooks/HEAD)
 
 The built image is [hosted on Docker-Hub](https://hub.docker.com/layers/kaup1074/my-datascience-notebook/latest/images/sha256-48f8e3077ff6573b3e4bd42849da4a70bbe8cae555536febb10f80c2932ad486?context=repo).
 
@@ -10,8 +10,11 @@ The built image is [hosted on Docker-Hub](https://hub.docker.com/layers/kaup1074
 Build:
 
 ```bash
-docker build fill-in-the-rest
-# Should explain how to build the image, including tagging it
+docker build --rm -t kaup1074/my-datascience-notebook
+# Built an image on dockerhub in the my data science notebook repo
+
+docker tag jupyter/my-datascience-notebook kaup1074/my-datascience-notebook
+# Tagged as above
 ```
 
 Run:
@@ -30,7 +33,6 @@ Build and run:
 
 ```bash
 docker-compose up
-# - It should publish port 8888
-# - It should mount the local directory as a volume in the container's
-#   home directory
+# - This command publishes port 8888 and mounts the local directory as a volume in the container's home directory
+# pushes to my Dockerhub repository
 ```
