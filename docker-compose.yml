@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  jupyter:
+    build: .
+    image: kaup1074/security-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/homejovyan/work
