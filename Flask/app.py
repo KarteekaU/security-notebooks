@@ -5,3 +5,8 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
+
+#sanity check route
+@app.route('/ping', methods=['GET'])
+def ping_pong():
+    return jsonify('pong!')
