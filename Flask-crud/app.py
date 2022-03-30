@@ -32,6 +32,10 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+def load_model():
+    '''
+    load your
+
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
@@ -41,6 +45,41 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 def ping_pong():
     return jsonify('pong!')
 
+    model = load_model()
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    """
+    Expects request.get_json to return a
+    string that is a valid url
+    """
+    response_object = {'status': 'success'}
+    if request.method == 'POST':
+        url = request.get_json()
+        length = len(url)
+        prediction = model.predict_proba([[length]])
+        print(prediction, file = sys.stderr)
+        response_object['prediction'] = prediction.tolist()[1]
+    return jsonify(response_object)
+
+# python decorators ('@') just do this:
+# returned_function = app.route('/ping', methods = '[GET]')
+# returned_function(ping_pong)
+
+# if this file is being run directly, as oppposed to being
+# imported by another python file
+if __name = "__main__":
+    app.run()
+
+def load_model():
+    with open('clf.pickle','rb') as f:
+        clf_loaded = pickle.load(f)
+    return clf_loaded
+
+while True:
+    pass
+
+socket.serve()
 
 def remove_book(book_id):
     for book in BOOKS:
